@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "newapp-8124b": {
+      "hosting": {
+        "AngularWeb": [
+          "newapp-8124b"
+        ]
+      }
+    }
+  }
+}

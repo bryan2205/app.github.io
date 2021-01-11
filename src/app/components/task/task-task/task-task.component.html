@@ -1,0 +1,12 @@
+<div class="card text-white bg-dark mt-2">
+    <div class="card-header d-flex justify-content-between align-item-center">
+        {{ tasks.title }}
+        <div>
+            <button class="btn btn-primary" (click)= "show = !show"> Show </button>
+            <button class="btn btn-dark" (click) = "deleteTask(tasks)"> Delete </button>
+        </div>
+    </div>
+    <div class="card-body" [hidden] ="show"> 
+        {{ tasks.description }} 
+    </div>
+</div>
