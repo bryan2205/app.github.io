@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+/* Models */
 import { DogBreed } from './models/dog-breed'
 
 @Component({
@@ -8,21 +9,22 @@ import { DogBreed } from './models/dog-breed'
 })
 export class SimpleCrudComponent {
 
+  /* Array Item */
   dogBreedArray: DogBreed[] = [
     {id: 1, name:"Ryan", typeAnimal:"Cane" ,breed:"Meticcio"},
     {id: 2, name:"Wendy", typeAnimal:"Gatto" ,breed:"Ipoallergenica"},
     {id: 3, name:"Ohana", typeAnimal:"Cane" ,breed:"Meticcio"}
   ]
 
+  /* selected Dog */
   selectedDog: DogBreed = new DogBreed();
   
+  /* add or edit */
   addOrEdit(){
     if(this.selectedDog.id === 0){
       this.selectedDog.id = this.dogBreedArray.length + 1;
     this.dogBreedArray.push(this.selectedDog)
     }
-
-
     this.selectedDog = new DogBreed();
   }
 

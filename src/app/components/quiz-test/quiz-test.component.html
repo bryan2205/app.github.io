@@ -1,0 +1,80 @@
+<div class="container mt-5">
+    <div class="row col-md-12">
+        <div class="text-center col">
+           <!--  <h1 class="text-primary" [hidden] =show>In che anno siamo?</h1> -->
+            <p class="py-5 text-dark fs-2 text-capitalize" *ngIf="yearDate == 2021 ; else error"> Welcome to 2021 !</p>
+            <ng-template class="pagination" #error>
+                <p class="page-item">In che anno siamo?</p>
+            </ng-template>
+            <input type="text" class="form-control display-4 col-md-6 offset-md-3" [(ngModel)]="yearDate">
+        </div>
+
+    </div>
+
+    <!--  <div class="py-5 row">
+        <div class="col">
+            <input class="form-control" type="text" [(ngModel)]="utente">
+        </div>
+        <div class="col">
+            <button class=" btn btn-primary" (click)=addUser()>Aggiungi</button>
+        </div>
+        <div class="col">
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let user of users">{{ user }}</li>
+            </ul>
+        </div>
+    </div> -->
+
+
+    <div class="row py-5 col-md-12">
+        <div class="col-md-3">
+            <input placeholder="Name" class="form-control" type="text" [(ngModel)]="selectedUser.nome">
+        </div>
+        <div class="col-md-3">
+            <input placeholder="Surname" class="form-control" type="text" [(ngModel)]="selectedUser.cognome">
+        </div>
+        <div class="col-md-3">
+            <input placeholder="City" class="form-control" type="text" [(ngModel)]="selectedUser.citta">
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-primary" (click)="addUserTable()">Invio</button>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col"> Name </th>
+                    <th scope="col"> Surname </th>
+                    <th scope="col"> City </th>
+                    <th scope="col" class="text-end"> Edit or Delete </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let usersT of userTableArray;">
+                    <td> {{ usersT.id }} </td>
+                    <td>{{ usersT.nome }}</td>
+                    <td>{{ usersT.cognome }}</td>
+                    <td>{{ usersT.citta }}</td>
+                    <td class=" text-end ">
+                        <!-- editTable(usertT <-- usato dal ngFor) -->
+                        <button class="btn btn-primary mx-2" (click)="editTable(usersT)"> Edit </button>
+                        <button class="btn btn-dark" *ngIf="selectedUser.id !== 0" (click)="deleteTable()"> X </button>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+    <!-- 
+    <div class="row">
+        <input class="form-control" type="text" [(ngModel)]="valute">
+        <div [ngSwitch]="valute">
+            <p *ngSwitchCase="1"> Valore : {{ valute }} esiste </p>
+            <p *ngSwitchCase="10"> Valore : {{ valute }} esiste </p>
+            <p *ngSwitchCase="100"> Valore : {{ valute }} esiste </p>
+            <p *ngSwitchDefault [ngStyle]="{color: valute !== 0 ? 'red':'black'}"> Il valore non esiste </p>
+        </div>
+    </div>
+ -->
