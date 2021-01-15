@@ -4,3 +4,6 @@ export class UserTable {
     cognome: string;
     citta: string;
 }
+export class UserList{
+    list: string;
+}
