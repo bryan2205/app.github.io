@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 /* models */
 import { UserTable } from '../quiz-test/models/quiz-test.model';
-import { UserList } from '../quiz-test/models/quiz-test.model'
+import { UserList } from '../quiz-test/models/quiz-test.model';
 
 @Component({
   selector: 'app-body',
@@ -13,12 +13,9 @@ export class QuizTestComponent {
 
   yearDate: number;
   utente: string = '';
-  user:UserList[] = [
-    {list: 'Mario'}
-  ]
 
-  
-  userList: UserList = new UserList();
+  // Table Form
+
   selectedUser: UserTable = new UserTable();
 
   userTableArray: UserTable[] = [
@@ -45,7 +42,26 @@ export class QuizTestComponent {
       this.selectedUser = new UserTable();
     }
   }
-  sendList(addlist:HTMLInputElement){
-    this.user.push(this.userList)
+  // list group
+
+  userSelect: UserList = new UserList();
+
+  arrayUser: UserList[] = [{id:1, list:"lista"}];
+
+  pushUser() {
+    if (this.userSelect.id === 0) {
+      this.userSelect.id = this.arrayUser.length + 1;
+      this.arrayUser.push(this.userSelect);
+    }
+    this.userSelect = new UserList();
+  }
+
+  deleteUser() {
+    if (confirm('Are you sure?')) {
+      for(let i=0; i<this.arrayUser.length; i++){
+        this.arrayUser.splice(i,1)
+      }
+      this.userSelect = new UserList();
+    }
   }
 }

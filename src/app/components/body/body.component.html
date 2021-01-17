@@ -9,6 +9,14 @@
                   <a class="btn btn-lg btn-secondary" href="https://angular.io" target="_blank">Learn more</a>
                 </p>
               </main>
+              <div class="d-inline-block" ngbDropdown #myDrop="ngbDropdown">
+                <button class="btn btn-outline-primary mr-2" id="dropdownManual" ngbDropdownAnchor (focus)="myDrop.open()">Toggle dropdown</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownManual">
+                  <button ngbDropdownItem>Action - 1</button>
+                  <button ngbDropdownItem>Another Action</button>
+                  <button ngbDropdownItem>Something else is here</button>
+                </div>
+              </div>              
         </div>
     </div>
 </div>

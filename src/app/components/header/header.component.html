@@ -8,7 +8,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarToggleExternalContent">
-        <ul class="navbar-nav mb-2 mb-lg-0 ml-auto">
+        <ul class="navbar-nav mb-2 mb-lg-0 ml-auto" *ngIf="user$ | async as user; else login">
           <li class="nav-item">
             <a class="nav-link" routerLinkActive="active" [routerLink]="['/simple-crud']"> Simple Crud </a>
           </li>
@@ -21,7 +21,27 @@
           <li class="nav-item">
             <a class="nav-link" routerLinkActive="active" [routerLink]="['/quiz-test']" > Quiz Test </a>
           </li>
+        <!-- example -->
+          <li class="nav-item" ngbDropdown>
+            <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button">
+              {{user?.email}}
+            </a>
+            <div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
+              <a class="dropdown-item" ngbDropdownItem href="#" (click)="$event.preventDefault()" (click) = "onLogout()"> Logout </a>
+            </div>
+          </li>
+        <!-- end example -->
         </ul>
+        <ng-template #login>
+          <ul class="navbar-nav mb-2 ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['/login']"> Login </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active" [routerLink]="['/register']"> Register </a>
+            </li>
+          </ul>
+        </ng-template>
       </div>
     </div>
   </nav>
